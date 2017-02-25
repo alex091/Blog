@@ -1,0 +1,40 @@
+{% extends 'posts/base.html' %}
+{% block content %}
+<div class=" col-sm-12 col-md-6 col-lg-6">
+    <div class="row">
+        <div class="leftbar_content">
+            <div class="singlepost_area">
+                <div class="singlepost_content"> <a href="{{post.category.get_absolute_url}}" class="stuff_category">{{post.category}}</a> <span class="stuff_date">{{post.created|date:'j M'}}</span>
+                <h2>{{post.title}}</h2>
+                    <div class="single_stuff_img">
+                    {% if post.image %}
+                    <img alt="" src="{{post.image.url}}"></a>
+                    {% endif %}
+                    </div>
+                <p>{{post.content}}</p>
+                    <ul class="poplr_tagnav">
+                        {% for tag in tags %}
+                        <li><a href="{{ tag.get_absolute_url }}">{{tag.title}}</a></li>
+                        {% endfor %}
+                    </ul>
+
+                    <p><div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                    <hr/>
+                    </p>
+                    <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
+                <!--<div class="singlepage_pagination"> <a class="previous_btn" href="#">Previous</a> <a class="next_btn" href="#">Next</a> </div>-->
+                <!--<div class="social_area wow fadeInLeft">-->
+                  <!--<ul>-->
+                    <!--<li><a href="#"><span class="fa fa-facebook"></span></a></li>-->
+                    <!--<li><a href="#"><span class="fa fa-twitter"></span></a></li>-->
+                    <!--<li><a href="#"><span class="fa fa-google-plus"></span></a></li>-->
+                    <!--<li><a href="#"><span class="fa fa-linkedin"></span></a></li>-->
+                    <!--<li><a href="#"><span class="fa fa-pinterest"></span></a></li>-->
+                  <!--</ul>-->
+                <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

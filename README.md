@@ -1,1 +1,1 @@
-# Blog
+Basic blog with Django excluding frontend.
